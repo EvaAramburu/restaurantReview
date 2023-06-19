@@ -1,22 +1,6 @@
-<app-header></app-header>
-<div style="max-width: 1200px; margin: auto">
-  <div
-    fxLayout="row wrap"
-    fxLayout.xs="column"
-    fxLayoutAlign="space-evenly center"
-  >
-    <div
-      *ngFor="let restaurant of restaurants; let i = index"
-      fxFlex="30"
-      fxFlex.sm="45"
-      style="margin-bottom: 3.125rem"
-    >
-      <app-restaurant [restaurant]="restaurant"></app-restaurant>
-      <!-- otra forma de hacer la condicional implementando métodos restaurantHasReviews y numberOfReviews. Usar métodos más exigentes puede ralentizar la aplicacion.
-   <p *ngIf="restaurantHasReviews(restaurant); else noReviews"> This restaurant has {{restaurant.reviews.length}} reviews.</p>
-   <p *ngIf="restaurant.reviews.length > 0; else noReviews"> This restaurant has {{numberOfReviews(restaurant)}} reviews.</p> -->
-    </div>
-  </div>
+<app-navbar></app-navbar>
+<div style="max-width: 75%; margin: 0 auto">  
+  <router-outlet></router-outlet>
 </div>
 
-<router-outlet></router-outlet>
+
