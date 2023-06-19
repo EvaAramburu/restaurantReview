@@ -1,0 +1,8 @@
+.elevate{
+ box-shadow: 0 4px 8px 0 rgba(200, 168, 100, 0.4), 0 6px 20px 0 rgba(200, 168, 100, 0.4);
+}
+
+:hover {
+    background-color: rgb(255, 188, 188);
+    color: black;
+}

@@ -1,0 +1,33 @@
+<mat-card [class.elevate]="restaurant.id === onMouseId" (mouseover)="onCard(restaurant.id)" (mouseout)="onCard(-2)">
+    <mat-card-header>
+      <div mat-card-avatar>
+        <mat-icon>restaurant</mat-icon>
+      </div>
+      <mat-card-title>{{ restaurant.name | uppercase }}</mat-card-title>
+      <mat-card-subtitle>{{ restaurant.cuisine_type }}</mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      src="{{ restaurant.photograph }}"
+      class="img-responsive"
+    />
+    <mat-card-content>
+      <p>{{ restaurant.address }}</p>
+      <p>Location: {{ restaurant.neighborhood }}</p>
+      <p *ngIf="restaurant.reviews!.length > 0; else noReviews">
+        This restaurant has {{ restaurant.reviews!.length }} reviews.
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-icon-button>
+        <mat-icon>favorite</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon>share</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+
+  <ng-template #noReviews>
+    <p>No reviews yet. Type yours!</p>
+  </ng-template>
