@@ -1,14 +1,10 @@
 <app-header></app-header>
-<map-view [fitBounds]="true" [zoom]="8">
-  <map-marker [mapFitBounds]="true" [latitude]="n.latlng!.lat" [longitude]="n.latlng!.lng"
-  *ngFor="let n of restaurants">
-    <map-info-window>{{n.name}}</map-info-window>
-  </map-marker>
-</map-view>
+<app-map></app-map>
 <div
 fxLayout="row wrap"
 fxLayout.xs="column"
-fxLayoutAlign="space-evenly center"
+fxLayoutAlign="space-evenly start"
+
 >
 <div
   *ngFor="let restaurant of restaurants; let i = index"

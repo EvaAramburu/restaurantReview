@@ -1,1 +1,6 @@
-
+<map-view [fitBounds]="true" [zoom]="8">
+    <map-marker [mapFitBounds]="true" [latitude]="n.latlng!.lat" [longitude]="n.latlng!.lng"
+    *ngFor="let n of restaurants">
+      <map-info-window>{{n.name}}</map-info-window>
+    </map-marker>
+  </map-view>

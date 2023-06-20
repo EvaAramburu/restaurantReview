@@ -18,6 +18,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CreaterestaurantComponent } from './createrestaurant/createrestaurant.component';
 import { RestaurantdetailComponent } from './restaurantdetail/restaurantdetail.component';
 import { MapComponent } from './map/map.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatDividerModule} from '@angular/material/divider';
+import { FabComponent } from './fab/fab.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +34,8 @@ import { MapComponent } from './map/map.component';
     CreaterestaurantComponent,
     RestaurantdetailComponent,
     MapComponent,
+    FabComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,9 @@ import { MapComponent } from './map/map.component';
     MatButtonModule,
     MatCardModule,
     MatIconModule,
+    MatBadgeModule,
     MatToolbarModule,
+    MatDividerModule,
     NgMapsCoreModule,
     NgMapsGoogleModule
   ],

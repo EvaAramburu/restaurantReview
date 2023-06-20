@@ -1,0 +1,55 @@
+<div class="dialog_scrim" *ngIf="openMenu"></div>
+
+<button
+  mat-fab
+  color="accent"
+  (click)="clickMenu()"
+  class="menu-button"
+  [class.mat-elevation-z2]="!isOver"
+  [class.mat-elevation-z8]="isOver"
+  (mouseover)="isOver = true"
+  (mouseleave)="isOver = false"
+>
+  <i class="material-icons" *ngIf="!openMenu">menu</i>
+  <i class="material-icons" *ngIf="openMenu">close</i>
+</button>
+
+<!-- menu button -->
+<a
+  mat-mini-fab
+  class="action-button one mat-elevation-z8"
+  *ngIf="openMenu"
+  color="basic"
+  routerLink="/new"
+>
+  <i class="material-icons">add</i>
+</a>
+
+<p
+  mat-raised-button
+  class="label labelone mat-elevation-z8"
+  *ngIf="openMenu"
+  color="basic"
+  routerLink="/new"
+>
+  Add Restaurant
+</p>
+
+<button
+  mat-mini-fab
+  class="action-button two mat-elevation-z8"
+  *ngIf="openMenu"
+  color="basic"
+  routerLink="/restaurants"
+>
+  <i class="material-icons">arrow_back</i>
+</button>
+<p
+  mat-raised-button
+  class="label labeltwo mat-elevation-z8"
+  *ngIf="openMenu"
+  color="basic"
+  routerLink="/restaurants"
+>
+  Return to list
+</p>

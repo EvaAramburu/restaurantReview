@@ -13,7 +13,7 @@
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
 $ng-course-primary: mat.define-palette(mat.$amber-palette, 200);
-$ng-course-accent: mat.define-palette(mat.$brown-palette, 800, 900);
+$ng-course-accent: mat.define-palette(mat.$amber-palette, 900);
 
 // The warn palette is optional (defaults to red).
 $ng-course-warn: mat.define-palette(mat.$red-palette, 400);
