@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Restaurant } from '../model';
 import { RestaurantService } from '../restaurant.service';
+import { RestaurantHttpService } from '../restaurant-http.service';
 
 @Component({
   selector: 'app-restaurant-list',
@@ -10,7 +11,7 @@ import { RestaurantService } from '../restaurant.service';
 export class RestaurantListComponent implements OnInit {
   restaurants: Restaurant[] = [];
 
-  constructor(private service: RestaurantService) {}
+  constructor(private service: RestaurantHttpService) {}
 
   restaurantHasReviews(restaurant: any) {
     return restaurant.reviews.length > 0;
@@ -20,6 +21,9 @@ export class RestaurantListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.restaurants = this.service.getRestaurants();
+    //this.restaurants = this.service.getRestaurants();
+    this.service.getRestaurants().subscribe(restaurants => {
+      this.restaurants = restaurants; 
+    });
   }
 }

@@ -22,6 +22,12 @@ import {MatBadgeModule} from '@angular/material/badge';
 import {MatDividerModule} from '@angular/material/divider';
 import { FabComponent } from './fab/fab.component';
 import { FooterComponent } from './footer/footer.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   declarations: [
@@ -49,7 +55,11 @@ import { FooterComponent } from './footer/footer.component';
     MatToolbarModule,
     MatDividerModule,
     NgMapsCoreModule,
-    NgMapsGoogleModule
+    NgMapsGoogleModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [{
     provide: GOOGLE_MAPS_API_CONFIG,

@@ -1,1 +1,7 @@
-<p>restaurantdetail works!</p>
+
+<div fxLayout="row" fxLayout="space-between stretch">
+  <app-restaurant fxFlex="45" [restaurant]="restaurant!"></app-restaurant>
+  <app-map fxFlex="45" [restaurants]="[restaurant!]"></app-map>
+</div>
+<br/>
+<a mat-raised-button routerLink="/restaurants/{{restaurant!.id +1}}"> <mat-icon>navigate_next</mat-icon> Next</a>

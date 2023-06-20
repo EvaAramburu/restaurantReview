@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Restaurant } from '../model';
 import { RestaurantService } from '../restaurant.service';
 
@@ -8,11 +8,6 @@ import { RestaurantService } from '../restaurant.service';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent {
-  restaurants: Restaurant[] = [];
+  @Input() restaurants: Restaurant[] = [];
 
-  constructor(private service: RestaurantService) {}
-  
-  ngOnInit() {
-    this.restaurants = this.service.getRestaurants();
-  }
 }

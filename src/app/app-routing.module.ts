@@ -7,9 +7,9 @@ import { RestaurantdetailComponent } from './restaurantdetail/restaurantdetail.c
 
 const routes: Routes = [
   { path: 'restaurants', component: RestaurantListComponent },
-  { path: '', redirectTo: '/restaurants', pathMatch: 'full'},
+  { path: 'restaurants/:id', component: RestaurantdetailComponent},
   { path: 'new', component: CreaterestaurantComponent},
-  { path: 'details', component: RestaurantdetailComponent},
+  { path: '', redirectTo: '/restaurants', pathMatch: 'full'},
   { path: '**', component: PagenotfoundComponent },
   
 ];
