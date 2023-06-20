@@ -3,9 +3,9 @@
 }
 mat-card {
     margin-top: 40px;
+    background-color: #FFE082;
 }
 mat-card:hover {
-    background-color: #FFE082;
     color: rgb(41, 41, 41);
 }
 
