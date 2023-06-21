@@ -1,7 +1,7 @@
 <mat-card
   [class.elevate]="restaurant.id === onMouseId"
   (mouseover)="onCard(restaurant.id)"
-  (mouseout)="onCard(-2)"
+  (mouseout)="onCard(-1)"
 >
   <mat-card-header>
     <div mat-card-avatar>
@@ -21,7 +21,7 @@
 
     <div
       *ngIf="restaurant.reviews!.length > 0; else noReviews"
-      matBadge="{{ restaurant.reviews!.length }}"
+      matBadge="{{ restaurant.reviews!.length}}"
       matBadgeColor="accent"
       matBadgeOverlap="false"
       matBadgePosition="above before"
@@ -31,18 +31,24 @@
     <!-- This restaurant has {{ restaurant.reviews!.length }} reviews. -->
   </mat-card-content>
   <mat-divider></mat-divider>
-  <mat-card-actions>
+  <mat-card-actions fxLayout="row wrap">
     <button mat-icon-button (click)="throw()">
       <mat-icon>rate_review</mat-icon>
     </button>
     <button mat-icon-button routerLink="{{restaurant.id}}">
       <mat-icon>open_in_new</mat-icon>
     </button>
-    <button mat-icon-button (click)="throw()">
+    <button mat-icon-button disabled="disabled">
       <mat-icon>favorite</mat-icon>
     </button>
-    <button mat-icon-button (click)="throw()">
+    <button mat-icon-button disabled="disabled">
       <mat-icon>share</mat-icon>
+    </button>
+    <button mat-icon-button (click)="delete()">
+      <mat-icon>delete</mat-icon>
+    </button>
+    <button mat-icon-button (click)="edit()" routerLink="/edit/{{restaurant!.id + 1 }}">
+      <mat-icon>edit_square</mat-icon>
     </button>
     
   </mat-card-actions>

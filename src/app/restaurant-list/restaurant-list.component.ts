@@ -11,6 +11,7 @@ import { RestaurantHttpService } from '../restaurant-http.service';
 export class RestaurantListComponent implements OnInit {
   restaurants: Restaurant[] = [];
 
+  // cambiar restaurantService por restaurantHttpService para observable
   constructor(private service: RestaurantHttpService) {}
 
   restaurantHasReviews(restaurant: any) {
@@ -21,7 +22,7 @@ export class RestaurantListComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.restaurants = this.service.getRestaurants();
+    // this.restaurants = this.service.getRestaurants();
     this.service.getRestaurants().subscribe(restaurants => {
       this.restaurants = restaurants; 
     });

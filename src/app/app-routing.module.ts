@@ -4,11 +4,13 @@ import { RestaurantListComponent } from './restaurant-list/restaurant-list.compo
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { CreaterestaurantComponent } from './createrestaurant/createrestaurant.component';
 import { RestaurantdetailComponent } from './restaurantdetail/restaurantdetail.component';
+import { EditRestaurantComponent } from './edit-restaurant/edit-restaurant.component';
 
 const routes: Routes = [
   { path: 'restaurants', component: RestaurantListComponent },
   { path: 'restaurants/:id', component: RestaurantdetailComponent},
   { path: 'new', component: CreaterestaurantComponent},
+  { path: 'edit/:id', component: EditRestaurantComponent},
   { path: '', redirectTo: '/restaurants', pathMatch: 'full'},
   { path: '**', component: PagenotfoundComponent },
   

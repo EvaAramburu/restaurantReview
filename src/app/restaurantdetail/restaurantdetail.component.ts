@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { RestaurantService } from '../restaurant.service';
 import { Restaurant } from '../model';
+import { RestaurantHttpService } from '../restaurant-http.service';
 @Component({
   selector: 'app-restaurantdetail',
   templateUrl: './restaurantdetail.component.html',
@@ -12,6 +13,7 @@ export class RestaurantdetailComponent implements OnInit {
 
   constructor(
     private restaurantService: RestaurantService,
+    private service: RestaurantHttpService,
     private route: ActivatedRoute
   ) {}
 
@@ -21,7 +23,12 @@ export class RestaurantdetailComponent implements OnInit {
     
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       const id = Number(paramMap.get('id'));
-      this.restaurant = this.restaurantService.getRestaurantById(id);
+     // console.log(id)
+      this.service.getRestaurantById(id).subscribe(restaurant => {
+        this.restaurant = restaurant; 
+      });
     });
+
+    
   }
 }

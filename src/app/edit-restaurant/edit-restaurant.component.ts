@@ -1,23 +1,33 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Restaurant } from '../model';
 import { RestaurantHttpService } from '../restaurant-http.service';
+import { Restaurant } from '../model';
+import { RestaurantService } from '../restaurant.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
-  selector: 'app-createrestaurant',
-  templateUrl: './createrestaurant.component.html',
-  styleUrls: ['./createrestaurant.component.css'],
+  selector: 'app-edit-restaurant',
+  templateUrl: './edit-restaurant.component.html',
+  styleUrls: ['./edit-restaurant.component.css'],
 })
-export class CreaterestaurantComponent implements OnInit {
-  restaurantForm!: FormGroup;
-  restaurant!: Restaurant;
-  
+export class EditRestaurantComponent {
+  modifyForm!: FormGroup;
+  restaurant?: Restaurant;
+
   constructor(
     private fb: FormBuilder,
-    private service: RestaurantHttpService
+    private service: RestaurantHttpService,
+    private noHttpService: RestaurantService,
+    private route: ActivatedRoute
   ) {}
+
+
   ngOnInit() {
-    this.restaurantForm = this.fb.group({
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      const id = Number(paramMap.get('id'));
+      this.restaurant = this.noHttpService.getRestaurantById(id - 1);
+    });
+    this.modifyForm = this.fb.group({
       // llamo a cada atributo con el nombre que tienen en el model.ts
       name: ['', [Validators.required, Validators.minLength(5)]],
       neighborhood: ['', [Validators.required]],
@@ -39,14 +49,14 @@ export class CreaterestaurantComponent implements OnInit {
       }),
     });
 
-    this.restaurantForm.valueChanges.subscribe((value) => {
-      this.restaurant = this.restaurantForm.value;
+    this.modifyForm.valueChanges.subscribe((value) => {
+      this.restaurant = this.modifyForm.value;
     });
   }
 
-  sendForm() {
-    this.restaurant = this.restaurantForm.value;
-    this.service.addRestaurant(this.restaurant).subscribe((data) => {
+  sendModifyForm() {
+    this.restaurant = this.modifyForm.value;
+    this.service.updateRestaurant(this.restaurant!.id, this.restaurant!).subscribe((data) => {
       console.log(data)
     });
   }

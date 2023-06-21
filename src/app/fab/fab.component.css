@@ -29,7 +29,7 @@
   }
   .label{
     position: fixed;
-    right: 50px;
+    right: 59px;
     left: auto;
     height: 25px;
     width: 100px;
@@ -37,6 +37,7 @@
     min-height: 25px;
     vertical-align: top;
     font-size: 12px;
+    font-weight: 500;
     padding: 0 0;
     margin: 0;
   }

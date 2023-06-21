@@ -26,6 +26,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { EditRestaurantComponent } from './edit-restaurant/edit-restaurant.component';
 
 
 
@@ -42,6 +43,7 @@ import { HttpClientModule } from '@angular/common/http';
     MapComponent,
     FabComponent,
     FooterComponent,
+    EditRestaurantComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,18 @@
 
-<div fxLayout="row" fxLayout="space-between stretch">
+<div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="5.625rem">
   <app-restaurant fxFlex="45" [restaurant]="restaurant!"></app-restaurant>
+
   <app-map fxFlex="45" [restaurants]="[restaurant!]"></app-map>
 </div>
-<br/>
-<a mat-raised-button routerLink="/restaurants/{{restaurant!.id +1}}"> <mat-icon>navigate_next</mat-icon> Next</a>
+<br />
+<div style="width: 60vw">
+  <a
+    fxLayoutAlign="center center"
+    style="width: fit-content"
+    mat-raised-button
+    routerLink="/restaurants/{{ restaurant!.id + 1 }}"
+    color="accent"
+  >
+    <mat-icon>navigate_next</mat-icon> Next restaurant</a
+  >
+</div>
