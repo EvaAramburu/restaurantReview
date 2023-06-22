@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RestaurantHttpService } from '../restaurant-http.service';
 import { Restaurant } from '../model';
-import { RestaurantService } from '../restaurant.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
@@ -10,22 +9,23 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
   templateUrl: './edit-restaurant.component.html',
   styleUrls: ['./edit-restaurant.component.css'],
 })
-export class EditRestaurantComponent {
+export class EditRestaurantComponent implements OnInit{
   modifyForm!: FormGroup;
-  restaurant?: Restaurant;
+  restaurant!: Restaurant;
 
   constructor(
     private fb: FormBuilder,
     private service: RestaurantHttpService,
-    private noHttpService: RestaurantService,
     private route: ActivatedRoute
   ) {}
-
 
   ngOnInit() {
     this.route.paramMap.subscribe((paramMap: ParamMap) => {
       const id = Number(paramMap.get('id'));
-      this.restaurant = this.noHttpService.getRestaurantById(id - 1);
+      this.service.getRestaurantById(id -1).subscribe(restaurant => {
+        this.restaurant = restaurant; 
+        console.log(id);
+      });
     });
     this.modifyForm = this.fb.group({
       // llamo a cada atributo con el nombre que tienen en el model.ts
@@ -56,8 +56,12 @@ export class EditRestaurantComponent {
 
   sendModifyForm() {
     this.restaurant = this.modifyForm.value;
-    this.service.updateRestaurant(this.restaurant!.id, this.restaurant!).subscribe((data) => {
-      console.log(data)
+    this.route.paramMap.subscribe((paramMap: ParamMap) => {
+      const id = Number(paramMap.get('id'));
+      this.service.updateRestaurant(id, this.restaurant).subscribe((data) => {
+        console.log(data)
+      });
     });
+    
   }
 }

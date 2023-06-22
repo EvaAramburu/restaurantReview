@@ -11,7 +11,7 @@ import { RestaurantHttpService } from '../restaurant-http.service';
 export class CreaterestaurantComponent implements OnInit {
   restaurantForm!: FormGroup;
   restaurant!: Restaurant;
-  
+
   constructor(
     private fb: FormBuilder,
     private service: RestaurantHttpService
@@ -46,8 +46,8 @@ export class CreaterestaurantComponent implements OnInit {
 
   sendForm() {
     this.restaurant = this.restaurantForm.value;
-    this.service.addRestaurant(this.restaurant).subscribe((data) => {
-      console.log(data)
+    this.service.addRestaurant(this.restaurant).subscribe(() => {
+    this.restaurantForm.reset();
     });
   }
 }

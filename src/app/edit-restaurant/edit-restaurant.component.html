@@ -1,12 +1,12 @@
 <h1>Edit restaurant</h1>
-<div style="display: none;">
+<div style="display: none">
   <app-restaurant [restaurant]="restaurant!"></app-restaurant>
 </div>
 <br />
 <form [formGroup]="modifyForm">
   <div fxLayoutGap="5px">
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>{{ restaurant!.name }}</mat-label>
+      <mat-label>Name: {{ restaurant!.name }}</mat-label>
       <input
         formControlName="name"
         matInput
@@ -19,7 +19,7 @@
       <mat-error *ngIf="false">Name is required</mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>{{ restaurant!.address }}</mat-label>
+      <mat-label>Address: {{ restaurant!.address }}</mat-label>
       <input
         formControlName="address"
         matInput
@@ -28,7 +28,7 @@
       />
     </mat-form-field>
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>{{ restaurant!.neighborhood }}</mat-label>
+      <mat-label>Neighborhood: {{ restaurant!.neighborhood }}</mat-label>
       <input
         formControlName="neighborhood"
         matInput
@@ -37,7 +37,7 @@
       />
     </mat-form-field>
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>{{ restaurant!.photograph }}</mat-label>
+      <mat-label>Photograph</mat-label>
       <input
         formControlName="photograph"
         matInput
@@ -46,7 +46,7 @@
       />
     </mat-form-field>
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>{{ restaurant!.cuisine_type }}</mat-label>
+      <mat-label>Cuisine type: {{ restaurant!.cuisine_type }}</mat-label>
       <input
         formControlName="cuisine_type"
         matInput
@@ -63,7 +63,7 @@
     >
       <!--LATITUD Y LONGITUD-->
       <mat-form-field fxFlex="auto" appearance="fill">
-        <mat-label>{{ restaurant!.latlng?.lat }}</mat-label>
+        <mat-label>Latitude: {{ restaurant!.latlng?.lat }}</mat-label>
         <input
           formControlName="lat"
           type="number"
@@ -73,7 +73,7 @@
         />
       </mat-form-field>
       <mat-form-field fxFlex="auto" appearance="fill">
-        <mat-label>{{ restaurant!.latlng?.lng }}</mat-label>
+        <mat-label>Longitude: {{ restaurant!.latlng?.lng }}</mat-label>
         <input
           formControlName="lng"
           type="number"
