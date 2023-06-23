@@ -1,4 +1,4 @@
-<br />
+-<br />
 <form [formGroup]="restaurantForm">
   <div fxLayoutGap="5px">
     <mat-form-field class="example-full-width" appearance="fill">
@@ -9,7 +9,7 @@
         placeholder="Enter name"
         value=""
       />
-      <mat-error *ngIf="restaurantForm.get('name')?.hasError('minlength')"
+      <mat-error *ngIf="restaurantForm.get('name')!.hasError('minlength')"
         >Name has to be 5 characters or more</mat-error
       >
       <mat-error *ngIf="false">Name is required</mat-error>
@@ -159,8 +159,11 @@
     type="submit"
     color="primary"
     (click)="sendForm()"
-    [disabled]="restaurantForm.invalid"
+    [disabled]="restaurantForm.invalid || loading"
   >
-    Create restaurant
+   <ng-container *ngIf="!loading">Add restaurant</ng-container>
+   <ng-container *ngIf="loading">Loading...</ng-container>
   </button>
 </form>
+
+

@@ -44,11 +44,11 @@ export class RestaurantHttpService {
         alert('err');
         throw err;
       })
-    );
+    ) 
   }
 
   updateRestaurant(id: number, restaurant: Restaurant): Observable<Restaurant> {
-    const url = `${this.dltURL}/${id}`;
+    const url = `${this.dltURL}/${id}/`;
     return this.http.patch<Restaurant>(url, restaurant).pipe(
       catchError((err) => {
         console.error(err);

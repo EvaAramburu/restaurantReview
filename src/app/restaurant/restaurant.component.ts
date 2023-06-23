@@ -20,13 +20,9 @@ export class RestaurantComponent {
   }
 
   delete() {
-    // console.log(this.restaurant.id)
     this.service.deleteRestaurant(this.restaurant.id).subscribe();
   }
-  edit() {
-    // console.log(this.restaurant.id)
-    // this.service.updateRestaurant(this.restaurant.id)
-  }
+
   throw() {
     alert("We're working on this function. Coming soon!")
   }

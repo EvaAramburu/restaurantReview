@@ -1,25 +1,22 @@
 <h1>Edit restaurant</h1>
-<div style="display: none">
-  <app-restaurant [restaurant]="restaurant!"></app-restaurant>
-</div>
 <br />
 <form [formGroup]="modifyForm">
   <div fxLayoutGap="5px">
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Name: {{ restaurant!.name }}</mat-label>
+      <mat-label>Name: </mat-label>
       <input
         formControlName="name"
         matInput
         placeholder="Enter name"
         value=""
       />
-      <mat-error *ngIf="modifyForm.get('name')?.hasError('minlength')"
+      <mat-error *ngIf="modifyForm.get('name')!.hasError('minlength')"
         >Name has to be 5 characters or more</mat-error
       >
       <mat-error *ngIf="false">Name is required</mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Address: {{ restaurant!.address }}</mat-label>
+      <mat-label>Address: </mat-label>
       <input
         formControlName="address"
         matInput
@@ -28,7 +25,7 @@
       />
     </mat-form-field>
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Neighborhood: {{ restaurant!.neighborhood }}</mat-label>
+      <mat-label>Neighborhood: </mat-label>
       <input
         formControlName="neighborhood"
         matInput
@@ -46,7 +43,7 @@
       />
     </mat-form-field>
     <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Cuisine type: {{ restaurant!.cuisine_type }}</mat-label>
+      <mat-label>Cuisine type: </mat-label>
       <input
         formControlName="cuisine_type"
         matInput
@@ -63,7 +60,7 @@
     >
       <!--LATITUD Y LONGITUD-->
       <mat-form-field fxFlex="auto" appearance="fill">
-        <mat-label>Latitude: {{ restaurant!.latlng?.lat }}</mat-label>
+        <mat-label>Latitude: </mat-label>
         <input
           formControlName="lat"
           type="number"
@@ -73,7 +70,7 @@
         />
       </mat-form-field>
       <mat-form-field fxFlex="auto" appearance="fill">
-        <mat-label>Longitude: {{ restaurant!.latlng?.lng }}</mat-label>
+        <mat-label>Longitude: </mat-label>
         <input
           formControlName="lng"
           type="number"
@@ -93,7 +90,7 @@
     >
       <!--HORAS DE APERTURA-->
       <mat-form-field fxFlex.sm="48" fxFlex="auto" appearance="fill">
-        <mat-label>Monday {{ restaurant!.operating_hours?.Monday }}</mat-label>
+        <mat-label>Monday</mat-label>
         <input
           formControlName="Monday"
           matInput
@@ -104,7 +101,7 @@
       </mat-form-field>
       <mat-form-field fxFlex.sm="48" fxFlex="auto" appearance="fill">
         <mat-label
-          >Tuesday {{ restaurant!.operating_hours?.Tuesday }}</mat-label
+          >Tuesday</mat-label
         >
         <input
           formControlName="Tuesday"
@@ -115,7 +112,7 @@
       </mat-form-field>
       <mat-form-field fxFlex.sm="48" fxFlex="auto" appearance="fill">
         <mat-label
-          >Wednesday {{ restaurant!.operating_hours?.Wednesday }}</mat-label
+          >Wednesday </mat-label
         >
         <input
           formControlName="Wednesday"
@@ -126,7 +123,7 @@
       </mat-form-field>
       <mat-form-field fxFlex.sm="48" fxFlex="auto" appearance="fill">
         <mat-label
-          >Thursday {{ restaurant!.operating_hours?.Thursday }}</mat-label
+          >Thursday </mat-label
         >
         <input
           formControlName="Thursday"
@@ -136,7 +133,7 @@
         />
       </mat-form-field>
       <mat-form-field fxFlex.sm="48" fxFlex="auto" appearance="fill">
-        <mat-label>Friday {{ restaurant!.operating_hours?.Friday }}</mat-label>
+        <mat-label>Friday </mat-label>
         <input
           formControlName="Friday"
           matInput
@@ -146,7 +143,7 @@
       </mat-form-field>
       <mat-form-field fxFlex.sm="48" fxFlex="auto" appearance="fill">
         <mat-label
-          >Saturday {{ restaurant!.operating_hours?.Saturday }}</mat-label
+          >Saturday </mat-label
         >
         <input
           formControlName="Saturday"
@@ -156,7 +153,7 @@
         />
       </mat-form-field>
       <mat-form-field fxFlex.sm="48" fxFlex="auto" appearance="fill">
-        <mat-label>Sunday {{ restaurant!.operating_hours?.Sunday }}</mat-label>
+        <mat-label>Sunday </mat-label>
         <input
           formControlName="Sunday"
           matInput
